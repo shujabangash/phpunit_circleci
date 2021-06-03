@@ -2,18 +2,17 @@
 
 namespace App\Controller;
 
-use App\Http\Controllers\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Enclosure;
 use App\Factory\DinosaurFactory;
 
-class DefaultController extends Controller
+class DefaultController extends AbstractController
 {
     /**
       * @Route("/", name="homepage") 
       */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $enclosures = $this->getDoctrine()
             ->getRepository(Enclosure::class)
@@ -25,10 +24,9 @@ class DefaultController extends Controller
     }
 
      /**
-     * @Route("/grow", name="grow_dinosaur")
-     * @Method({"POST"})
+     * @Route("/grow", name="grow_dinosaur",methods="POST")
      */
-    public function growAction(Request $request, DinosaurFactory $dinosaurFactory)
+    public function growAction(DinosaurFactory $dinosaurFactory)
     {
         $manager = $this->getDoctrine()->getManager();
 

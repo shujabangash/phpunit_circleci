@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace App\DataFixtures\ORM;
 
-use AppBundle\Entity\Dinosaur;
-use AppBundle\Entity\Enclosure;
+use App\Entity\Dinosaur;
+use App\Entity\Enclosure;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 
 class LoadBasicParkData extends AbstractFixture implements OrderedFixtureInterface
 {
